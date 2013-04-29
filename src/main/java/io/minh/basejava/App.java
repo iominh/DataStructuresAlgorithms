@@ -1,4 +1,4 @@
-package nguyen.minh.basejava;
+package io.minh.basejava;
 
 /**
  * A Java app
