@@ -30,15 +30,17 @@ public class SinglyLinkedList<T> implements List {
         T data = null;
 
         int x;
-        for (x = 0; x <= index; x++) {
-
-            if (x > index) {
-                throw new IndexOutOfBoundsException();
-            } else if (x == index) {
-                data = getData();
-                break;
-            }
+        SinglyLinkedList<T> current = this, next = getNext();
+        for (x = 1; x < (index - 1); x++) {
+            current = next;
+            next = current.getNext();
         }
+        if (x == index) {
+            data = current.getData();
+        } else if (x < index) {
+            throw new IndexOutOfBoundsException();
+        }
+
         return data;
     }
 
