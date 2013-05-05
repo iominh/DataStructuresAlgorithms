@@ -9,6 +9,7 @@ import static org.junit.Assert.*;
  */
 public class SinglyLinkedListTest {
 
+    private SinglyLinkedList<String> list11;
     private List<String> list123;
     private List<String> list12;
     private List<String> list1;
@@ -24,6 +25,8 @@ public class SinglyLinkedListTest {
         list123.add("2");
         list123.add("3");
 
+        list11 = new SinglyLinkedList<String>("1");
+        list11.add("1");
     }
 
     @Test
@@ -31,9 +34,9 @@ public class SinglyLinkedListTest {
         assertTrue("test list [1,2] contains element at index 1", list12.get(1) != null);
     }
 
-    @Test(expected = Exception.class)
+    @Test(expected = IndexOutOfBoundsException.class)
     public void testAdd_expectFailure_list12_contains_index2() {
-        assertTrue("test list [1,2] contains element at index 2", list12.get(2) != null);
+        assertTrue("test list [1,2] contains element at index 2", list1.get(2) != null);
     }
 
     @Test
@@ -84,5 +87,15 @@ public class SinglyLinkedListTest {
         assertTrue("list 123 == [" + list123.toString() + "] and should == [1,3]", list123.get(0).equals("1"));
         assertTrue("", list123.get(1).equals("3"));
 
+    }
+
+    /**
+     * Remove duplicates from [1,1] -> [1]
+     */
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testRemoveDuplicates_from_11() {
+        list11.removeDuplicates();
+        assertTrue("list 11 == [" + list11.toString() + "] and should == [1]", list11.get(0).equals("1"));
+        assertTrue("list 11 == [" + list11.toString() + "] and should == [1]", list11.get(1).equals("1"));
     }
 }

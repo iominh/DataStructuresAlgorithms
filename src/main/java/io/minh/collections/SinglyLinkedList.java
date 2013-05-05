@@ -5,14 +5,14 @@ package io.minh.collections;
  *
  */
 public class SinglyLinkedList<T> implements List {
-    
+
     private SinglyLinkedList<T> next = null;
     private T data = null;
-    
+
     public SinglyLinkedList(T data) {
         this.data = data;
     }
-    
+
     public boolean add(Object element) {
         boolean listChanged = false;
         SinglyLinkedList last = getLast();
@@ -20,7 +20,7 @@ public class SinglyLinkedList<T> implements List {
         last.next = next;
         return listChanged;
     }
-    
+
     public SinglyLinkedList getLast() {
         SinglyLinkedList last = this;
         while (last.getNext() != null) {
@@ -28,14 +28,14 @@ public class SinglyLinkedList<T> implements List {
         }
         return last;
     }
-    
+
     public boolean remove(Object element) {
         boolean removed = false;
-        
+
         SinglyLinkedList current = this, previous = null, next = null;
         while (current != null) {
             next = current.getNext();
-            
+
             if (current.getData().equals(element)) {
                 if (previous != null) {
                     previous.setNext(next);
@@ -51,30 +51,57 @@ public class SinglyLinkedList<T> implements List {
             previous = current;
             current = current.getNext();
         }
-        
+
         return removed;
     }
-    
-    public T get(int index) throws IndexOutOfBoundsException {
-        T data = null;
-        
+
+    /**
+     * Remove duplicates by finding all identical elements after the current
+     * node. Runs in O(n^2).
+     *
+     * @return
+     */
+    public boolean removeDuplicates() {
+        boolean removed = false;
+
+        for (SinglyLinkedList current = this; current.getNext() != null;
+                current = current.getNext()) {
+        }
+
+        return removed;
+    }
+
+    private SinglyLinkedList getList(int index) {
+        SinglyLinkedList item = null;
+
         int x;
         SinglyLinkedList<T> current = this;
         for (x = 0; x < index; x++) {
+
+            if (current == null) {
+                throw new IndexOutOfBoundsException();
+            }
             current = current.getNext();
         }
+
         if (x == index) {
-            data = current.getData();
-        } else if (x < index) {
-            throw new IndexOutOfBoundsException();
+            item = current;
         }
-        
+        return item;
+    }
+
+    public T get(int index) {
+        T data = null;
+        SinglyLinkedList<T> current = getList(index);
+        if (current != null) {
+            data = current.getData();
+        }
         return data;
     }
-    
+
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        
+
         SinglyLinkedList current = this;
         while (current != null) {
             Object data = current.getData();
@@ -85,19 +112,19 @@ public class SinglyLinkedList<T> implements List {
         }
         return sb.toString();
     }
-    
+
     public SinglyLinkedList getNext() {
         return next;
     }
-    
+
     public void setNext(SinglyLinkedList next) {
         this.next = next;
     }
-    
+
     public T getData() {
         return data;
     }
-    
+
     public void setData(T data) {
         this.data = data;
     }
