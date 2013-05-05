@@ -20,6 +20,20 @@ public interface List<T> {
     boolean add(T element);
 
     /**
+     * Removes the first occurrence of the specified element from this list, if
+     * it is present (optional operation). If this list does not contain the
+     * element, it is unchanged. More formally, removes the element with the
+     * lowest index i such that (o==null ? get(i)==null : o.equals(get(i))) (if
+     * such an element exists). Returns true if this list contained the
+     * specified element (or equivalently, if this list changed as a result of
+     * the call).
+     *
+     * @param element
+     * @return
+     */
+    boolean remove(T element);
+
+    /**
      * Returns the element at the specified position in this list.
      *
      * @param index of the element to return
