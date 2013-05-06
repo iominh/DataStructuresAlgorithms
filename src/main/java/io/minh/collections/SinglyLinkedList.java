@@ -66,6 +66,11 @@ public class SinglyLinkedList<T> implements List {
 
         for (SinglyLinkedList current = this; current.getNext() != null;
                 current = current.getNext()) {
+
+            // remove first occurrence of element in remainder of list
+            if (current.remove(current.getData())) {
+                removed = true;
+            }
         }
 
         return removed;
