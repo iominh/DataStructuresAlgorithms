@@ -10,9 +10,9 @@ import static org.junit.Assert.*;
 public class SinglyLinkedListTest {
 
     private SinglyLinkedList<String> list11;
-    private List<String> list123;
-    private List<String> list12;
-    private List<String> list1;
+    private SinglyLinkedList<String> list123;
+    private SinglyLinkedList<String> list12;
+    private SinglyLinkedList<String> list1;
     private SinglyLinkedList<String> emptyList;
 
     @Before
@@ -113,5 +113,18 @@ public class SinglyLinkedListTest {
         assertTrue("list1 size == " + length0 + " and should == 1", length1 == 1);
         assertTrue("list2 size == " + length2 + " and should == 2", length2 == 2);
         assertTrue("list3 size == " + length3 + " and should == 2", length3 == 3);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testKthToLast() {
+        SinglyLinkedList zero = list1.getKthToLast(0);
+        SinglyLinkedList first = list1.getKthToLast(1);
+        SinglyLinkedList second = list123.getKthToLast(1);
+
+
+        assertTrue("list 1 0th to last == [" + zero.toString() + "] and should == [1]", zero.toString().equals("1"));
+        assertTrue("list 123 1th to last == [" + second.toString() + "] and should == [2]", second.toString().equals("2"));
+        assertTrue("list 1 1st to last == [" + first.toString() + "] and should == null", first == null);
+
     }
 }

@@ -36,6 +36,31 @@ public class SinglyLinkedList<T> implements List {
         return last;
     }
 
+    /**
+     * Return the kth to last element in the list. For instance, if the list
+     * contains 3 elements [1, 2, 3] then
+     *
+     * <ul>
+     *
+     * <li>k=0 returns 3</li>
+     *
+     * <li>k=1 returns 2</li>
+     *
+     * <li>k=2 returns 1</li>
+     *
+     * <li>k=3 throws IndexOutOfBoundsException</li>
+     *
+     * </ul>
+     *
+     * @param k
+     * @return
+     */
+    public SinglyLinkedList getKthToLast(int k) throws IndexOutOfBoundsException {
+        int size = size();
+        int position = size - k - 1;
+        return getList(position);
+    }
+
     public boolean remove(Object element) {
         boolean removed = false;
 
@@ -84,6 +109,10 @@ public class SinglyLinkedList<T> implements List {
     }
 
     private SinglyLinkedList getList(int index) {
+        if (index < 0) {
+            throw new IndexOutOfBoundsException();
+        }
+
         SinglyLinkedList item = null;
 
         int x;
