@@ -40,4 +40,12 @@ public interface List<T> {
      * @return the element at the specified position in this list
      */
     T get(int index) throws IndexOutOfBoundsException;
+
+    /**
+     * Returns the number of elements in this list. If this list contains more
+     * than Integer.MAX_VALUE elements, returns Integer.MAX_VALUE.
+     *
+     * @return
+     */
+    int size();
 }

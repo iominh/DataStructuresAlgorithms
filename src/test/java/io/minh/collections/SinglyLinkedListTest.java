@@ -13,6 +13,7 @@ public class SinglyLinkedListTest {
     private List<String> list123;
     private List<String> list12;
     private List<String> list1;
+    private SinglyLinkedList<String> emptyList;
 
     @Before
     public void setup() {
@@ -27,6 +28,8 @@ public class SinglyLinkedListTest {
 
         list11 = new SinglyLinkedList<String>("1");
         list11.add("1");
+
+        emptyList = new SinglyLinkedList<String>();
     }
 
     @Test
@@ -97,5 +100,18 @@ public class SinglyLinkedListTest {
         list11.removeDuplicates();
         assertTrue("list 11 == [" + list11.toString() + "] and should == [1]", list11.get(0).equals("1"));
         assertTrue("list 11 == [" + list11.toString() + "] and should == [1]", list11.get(1).equals("1"));
+    }
+
+    @Test
+    public void testLength() {
+        int length0 = emptyList.size();
+        int length1 = list1.size();
+        int length2 = list12.size();
+        int length3 = list123.size();
+
+        assertTrue("empty list size == " + length0 + " and should == 0", length0 == 0);
+        assertTrue("list1 size == " + length0 + " and should == 1", length1 == 1);
+        assertTrue("list2 size == " + length2 + " and should == 2", length2 == 2);
+        assertTrue("list3 size == " + length3 + " and should == 2", length3 == 3);
     }
 }

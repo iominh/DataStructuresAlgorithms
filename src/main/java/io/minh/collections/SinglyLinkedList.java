@@ -1,7 +1,8 @@
 package io.minh.collections;
 
 /**
- * A singly linked list.
+ * A singly linked list. This data structure is purely academic and implements a
+ * linked list without using the actual Java implementations.
  *
  */
 public class SinglyLinkedList<T> implements List {
@@ -11,6 +12,12 @@ public class SinglyLinkedList<T> implements List {
 
     public SinglyLinkedList(T data) {
         this.data = data;
+    }
+
+    /**
+     * An empty list has null data members
+     */
+    public SinglyLinkedList() {
     }
 
     public boolean add(Object element) {
@@ -95,6 +102,18 @@ public class SinglyLinkedList<T> implements List {
         return item;
     }
 
+    public int size() {
+        int size = 0;
+
+        for (SinglyLinkedList current = this; current != null; current = current.getNext()) {
+            if (!current.isEmpty()) {
+                size++;
+            }
+        }
+
+        return size;
+    }
+
     public T get(int index) {
         T data = null;
         SinglyLinkedList<T> current = getList(index);
@@ -134,5 +153,9 @@ public class SinglyLinkedList<T> implements List {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    public boolean isEmpty() {
+        return next == null && data == null;
     }
 }
