@@ -64,7 +64,7 @@ public class SinglyLinkedList<T> implements List {
     public boolean removeDuplicates() {
         boolean removed = false;
 
-        for (SinglyLinkedList current = this; current.getNext() != null;
+        for (SinglyLinkedList current = this; current != null;
                 current = current.getNext()) {
 
             // remove first occurrence of element in remainder of list
@@ -100,6 +100,8 @@ public class SinglyLinkedList<T> implements List {
         SinglyLinkedList<T> current = getList(index);
         if (current != null) {
             data = current.getData();
+        } else {
+            throw new IndexOutOfBoundsException();
         }
         return data;
     }
