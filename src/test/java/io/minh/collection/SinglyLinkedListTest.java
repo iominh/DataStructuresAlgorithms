@@ -1,5 +1,6 @@
-package io.minh.collections;
+package io.minh.collection;
 
+import io.minh.collection.SinglyLinkedList;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -123,8 +124,19 @@ public class SinglyLinkedListTest {
 
 
         assertTrue("list 1 0th to last == [" + zero.toString() + "] and should == [1]", zero.toString().equals("1"));
-        assertTrue("list 123 1th to last == [" + second.toString() + "] and should == [2]", second.toString().equals("2"));
+        assertTrue("list 123 1st to last == [" + second.toString() + "] and should == [2]", second.toString().equals("2"));
         assertTrue("list 1 1st to last == [" + first.toString() + "] and should == null", first == null);
+
+    }
+
+    /**
+     * Remove the head of the list and verify that it's removed correctly.
+     */
+    @Test
+    public void deleteNode() {
+        list12.removeNode(list12);
+        assertTrue("list 12 next == [" + list12.getNext() + "] and should == null", list12.getNext() == null);
+        assertTrue("list 12 data == [" + list12.getData() + "] and should == 2", list12.getData().equals("2"));
 
     }
 }
