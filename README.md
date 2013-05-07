@@ -1,8 +1,8 @@
-DataStructures
-==============
+DataStructuresAlgorithms
+========================
 
-Implementations of various data structures, mostly for educational purposes.
+Implementations of various data structures and algorithms, mostly for educational purposes.
 
-Travis CI continuous integration: https://travis-ci.org/minhongrails/DataStructures
+Travis CI continuous integration: https://travis-ci.org/minhongrails/DataStructuresAlgorithms
 
 SinglyLinkedList - a singly linked list with get, add methods
