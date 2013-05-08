@@ -4,6 +4,8 @@
  */
 package io.minh.collection.stack;
 
+import io.minh.collection.list.SinglyLinkedList;
+
 /**
  * Standard Stack data structure for FIFO (first-in-first-out) operations. Uses
  * a linked list internally.
@@ -11,16 +13,17 @@ package io.minh.collection.stack;
  * @author mtnguyen
  */
 public class StackList<E> implements Stack {
-    
+
+    SinglyLinkedList top = null;
+
     @Override
     public boolean empty() {
-        return true;
+        return top.isEmpty();
     }
 
     @Override
     public Object peek() {
-        return null;
-
+        return top;
     }
 
     @Override
@@ -30,16 +33,27 @@ public class StackList<E> implements Stack {
 
     @Override
     public Object push(Object item) {
-        return null;
+        SinglyLinkedList newItem = new SinglyLinkedList(item);
+        if (top == null) {
+            top = newItem;
+        } else {
+            SinglyLinkedList last = top.getLast();
+            last.setNext(newItem);
+        }
+        return newItem;
     }
 
     @Override
     public int search(Object o) {
         return 0;
     }
-    
+
     @Override
     public String toString() {
-        return "stack";
+        if (top != null) {
+            return top.toString();
+        } else {
+            return "[]";
+        }
     }
 }

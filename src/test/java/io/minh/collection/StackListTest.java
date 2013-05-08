@@ -10,8 +10,7 @@ import static org.junit.Assert.*;
  */
 public class StackListTest {
 
-    private StackList<String> list11;
-    private StackList<String> emptyStack;
+    private static StackList<String> emptyStack;
 
     @Before
     public void setup() {
@@ -21,8 +20,17 @@ public class StackListTest {
     /**
      * Remove the head of the list and verify that it's removed correctly.
      */
-    @Test
+//    @Test
     public void testEmpty() {
-        assertTrue("stack == [" + emptyStack.toString() + "] and should == null", emptyStack.empty());
+        assertTrue("stack == [" + emptyStack.toString() + "] and should == []", emptyStack.empty());
+    }
+
+    /**
+     * Remove the head of the list and verify that it's removed correctly.
+     */
+    @Test
+    public void test_push_item() {
+        emptyStack.push("1");
+        assertTrue("stack == [" + emptyStack.toString() + "] and should == [1]", !emptyStack.empty());
     }
 }
