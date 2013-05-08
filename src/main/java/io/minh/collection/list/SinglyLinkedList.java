@@ -1,4 +1,6 @@
-package io.minh.collection;
+package io.minh.collection.list;
+
+import io.minh.collection.list.List;
 
 /**
  * A singly linked list. This data structure is purely academic and implements a

@@ -1,6 +1,6 @@
 package io.minh.collection;
 
-import io.minh.collection.SinglyLinkedList;
+import io.minh.collection.list.SinglyLinkedList;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
